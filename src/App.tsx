@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home";
-import TaskLinkPage from "./pages/tasks/taskLinkPage";
+import TaskLinkPage from "./pages/tasks/taskListPage";
 
 function App () {
   return (
