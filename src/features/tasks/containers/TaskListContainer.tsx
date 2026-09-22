@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTasks } from "../hooks/getTasks";
 import { Task } from "../../../types/task";
+import TaskCard from "../components/TaskCard";
 
 export default function TaskListContainer() {
   const [tasks, setTasks] = useState<Task[]>([]);
