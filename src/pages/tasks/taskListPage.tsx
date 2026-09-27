@@ -3,7 +3,7 @@ import TaskListContainer from "../../features/tasks/containers/TaskListContainer
 export default function TaskListPage() {
   return (
     <div>
-      <TaskListContainer />{}
+      <TaskListContainer /> {/* タスク一覧コンポーネントを読み込む */}
     </div>
-  )
+  );
 }
