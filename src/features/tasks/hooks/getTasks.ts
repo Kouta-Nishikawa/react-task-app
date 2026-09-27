@@ -1,4 +1,4 @@
-import { Task } from "../../../types/task";
+import type { Task } from "../../../types/task";
 import { mockTasks } from "../mocks/task";
 
 export const getTasks = (): Promise<Task[]> => {
