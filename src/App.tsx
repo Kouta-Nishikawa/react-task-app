@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home";
-import TaskLinkPage from "./pages/tasks/taskListPage";
+import TaskListPage from "./pages/tasks/taskListPage";
 
-function App () {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/task" element={<TaskLinkPage />} /> {}
+      <Route path="/tasks" element={<TaskListPage />} /> {/* タスク一覧ページのルーティング設定 */}
     </Routes>
   );
 }
