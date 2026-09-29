@@ -2,38 +2,35 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTasks } from "../hooks/getTasks";
 import type { Task } from "../../../types/task";
+import TaskCard from "../components/TaskCard";
+import styles from "../styles/TaskListContainer.module.css";
 
 export default function TaskListContainer() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-  const fetchTasks = async () => {
-    try {
+    const fetchTasks = async () => {
       const fetchedTasks = await getTasks();
-      console.log("取得したタスク:", fetchedTasks);
       setTasks(fetchedTasks);
-    } catch (error) {
-      console.error("タスクの取得に失敗しました:", error);
-    }
-  };
-
-  fetchTasks();
-}, []);
+    };
+    fetchTasks();
+  }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>タスク一覧</h1>
-      <div>
-        {tasks.map((task) => (
-          <div key={task.id}>
-            <Link to={`/tasks/${task.id}`}>
-              <h3>{task.title}</h3>
-            </Link>
-            <p>ステータス : {task.status ? "完了" : "未完了"}</p>
-            <p>優先度 : {task.priority}</p>
-            <p>期限日 : {task.dueDate}</p>
-          </div>
-        ))}
+      <div className={styles.tableContainer}>
+        <div className={styles.header}>
+          <div>タスク名</div>
+          <div>ステータス</div>
+          <div>優先度</div>
+          <div>期限日</div>
+        </div>
+        <div className={styles.taskList}>
+          {tasks.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
       </div>
     </div>
   );
