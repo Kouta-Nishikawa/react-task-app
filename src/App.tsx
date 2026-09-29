@@ -8,6 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/tasks" element={<TaskListPage />} /> {/* タスク一覧ページのルーティング設定 */}
+      <Route path="/tasks/:id" element={<TaskDetailPage />} />  {/* タスクの詳細ページのルーティングを追加 */}
     </Routes>
   );
 }
