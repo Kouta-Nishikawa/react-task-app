@@ -1,7 +1,9 @@
+import TaskDetailContainer from "../../features/tasks/containers/TaskDetailContainer";
+
 export default function TaskDetailPage() {
   return (
     <div>
-      {/* ここにタスク詳細コンポーネントを表示します */}
+      <TaskDetailContainer />
     </div>
-  )
+  );
 }
