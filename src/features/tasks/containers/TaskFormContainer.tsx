@@ -7,6 +7,17 @@ import styles from "../styles/taskForm.module.css";
 import { Priority, TaskFormData } from "../../../types/task";
 
 export default function TaskFormContainer() {
+  {/* 新規作成時にはidは必要ないためnullを渡す */}
+  return (
+    <div className={styles.container}>
+      <h1>新規タスク作成</h1>
+      <TaskForm
+        formData={formData}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
+  );
+}
   const [formData, setFormData] = useState<TaskFormData>({
     title: "",
     description: "",
