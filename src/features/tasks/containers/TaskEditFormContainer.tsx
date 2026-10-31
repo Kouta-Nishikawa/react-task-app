@@ -8,6 +8,18 @@ import { Priority, TaskFormData } from "../../../types/task";
 
 export default function TaskEditContainer() {
   const { id } = useParams<{ id?: string }>();
+  {/* 編集時にはidが必要なためidを渡す */}
+  return (
+    <div className={styles.container}>
+      <h1>タスク編集</h1>
+      <TaskForm
+        formData={formData}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        id={id}
+      />
+  );
+}
   const [formData, setFormData] = useState<TaskFormData | null>(null);
   const navigate = useNavigate();
 
