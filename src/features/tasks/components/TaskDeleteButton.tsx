@@ -23,3 +23,4 @@ export default function TaskDeleteButton({ id }: Props) {
       削除
     </button>
   );
+}
