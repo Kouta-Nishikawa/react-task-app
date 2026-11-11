@@ -4,6 +4,20 @@ import { getTaskById } from "../hooks/getTaskById";
 import { Task } from "../../../types/task";
 import TaskDetail from "../components/TaskDetail";
 import styles from "../styles/taskDetail.module.css";
+import TaskDeleteButton from "../components/TaskDeleteButton";
+
+export default function TaskDetailContainer() {
+  const { id } = useParams<{ id?: string }>()
+
+  return (
+     <div className={styles.taskDetailContainer}>
+      <TaskDetail task={task} />
+      <div>
+        <TaskDeleteButton id={id} /> {/* 削除ボタンコンポーネントを追加 */}
+      </div>
+    </div>
+  );
+}
 
 export default function TaskDetailContainer() {
   const { id } = useParams<{ id?: string }>();
