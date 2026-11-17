@@ -4,17 +4,26 @@ import { getTasks } from "../hooks/getTasks";
 import type { Task } from "../../../types/task";
 import TaskCard from "../components/TaskCard";
 import styles from "../styles/TaskListContainer.module.css";
+import { updateTask } from "../hooks/updateTask"; // updateTask関数をインポート
 
 export default function TaskListContainer() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  // タスク一覧を取得する関数
+  const fetchTasks = async () => {
+    const fetchedTasks = await getTasks();
+    setTasks(fetchedTasks);
+  };
+
   useEffect(() => {
-    const fetchTasks = async () => {
-      const fetchedTasks = await getTasks();
-      setTasks(fetchedTasks);
-    };
     fetchTasks();
   }, []);
+
+  // セレクトボックスで変更されたステータスを更新する処理
+  const handleToggleStatus = async (taskId: Task['id'], newStatus: boolean) => {
+    await updateTask(String(taskId), { status: newStatus });
+    fetchTasks();
+  };
 
   return (
     <div className={styles.container}>
