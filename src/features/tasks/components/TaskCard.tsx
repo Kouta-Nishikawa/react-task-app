@@ -6,9 +6,10 @@ import { Task } from "../../../types/task";
 
 type Props = {
   task: Task;
+  onToggleStatus: (taskId: Task['id'], newStatus: boolean) => void;
 };
 
-export default function TaskCard({ task }: Props) {
+export default function TaskCard({ task, onToggleStatus }: Props) {
   return (
     <div className={styles.taskCard}>
       <Link to={`/tasks/${task.id}`} className={styles.detailLink}>
