@@ -10,6 +10,15 @@ type Props = {
 };
 
 export default function TaskCard({ task, onToggleStatus }: Props) {
+  
+  // ステータス変更時のハンドラー
+  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newStatus = e.target.value === "true";
+    if (onToggleStatus) {
+      onToggleStatus(task.id, newStatus);
+    }
+  };
+  
   return (
     <div className={styles.taskCard}>
       <Link to={`/tasks/${task.id}`} className={styles.detailLink}>
