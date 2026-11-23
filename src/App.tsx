@@ -4,15 +4,21 @@ import TaskListPage from "./pages/tasks/taskListPage";
 import TaskDetailPage from "./pages/tasks/taskDetailPage";
 import TaskCreatePage from "./pages/tasks/taskCreatePage";
 import TaskEditPage from "./pages/tasks/taskEditPage";
+import Header from "./shared/components/Header";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/tasks" element={<TaskListPage />} />
-      <Route path="/tasks/:id" element={<TaskDetailPage />} />
-      <Route path="/tasks/new" element={<TaskCreatePage />} />
-      <Route path="/tasks/:id/edit" element={<TaskEditPage />} />  {/* タスク編集ページのルーティング */}
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tasks" element={<TaskListPage />} />
+        <Route path="/tasks/:id" element={<TaskDetailPage />} />
+        <Route path="/tasks/new" element={<TaskCreatePage />} />
+        <Route path="/tasks/:id/edit" element={<TaskEditPage />} />  {/* タスク編集ページのルーティング */}
+      </Routes>
+    </>
   );
 }
+
+export default App;
